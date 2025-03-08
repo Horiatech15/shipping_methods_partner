@@ -27,9 +27,9 @@ class SaleOrderInherit(models.Model):
     def set_delivery_line(self, carrier, amount):
         self._remove_delivery_line()
         for order in self:
+            print('ddddddddddddddddddddddddddddddddddddd')
             order.carrier_id = carrier.id
             if carrier.partner_id:
                 order.partner_shipping_id = carrier.partner_id.id
             order._create_delivery_line(carrier, amount)
         return True
-
